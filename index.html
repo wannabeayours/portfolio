@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-b from-[#F5D2D2] via-[#E8A9A9] to-[#D98B8B] text-gray-800 font-sans scroll-smooth">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-[#F5D2D2]/90 backdrop-blur-md border-none z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <h1 class="text-[#B85C5C] font-bold text-lg"></h1>
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+      <!-- Desktop menu -->
+      <ul class="hidden md:flex space-x-6 font-medium">
+        <li><a href="#home" class="hover:text-[#B85C5C]">Home</a></li>
+        <li><a href="#about" class="hover:text-[#B85C5C]">About</a></li>
+        <li><a href="#projects" class="hover:text-[#B85C5C]">Projects</a></li>
+        <li><a href="#skills" class="hover:text-[#B85C5C]">Skills</a></li>
+      </ul>
+    </div>
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden bg-[#F5D2D2] md:hidden">
+      <ul class="px-6 py-4 space-y-4 font-medium">
+        <li><a href="#home" class="block hover:text-[#B85C5C]">Home</a></li>
+        <li><a href="#about" class="block hover:text-[#B85C5C]">About</a></li>
+        <li><a href="#projects" class="block hover:text-[#B85C5C]">Projects</a></li>
+        <li><a href="#skills" class="block hover:text-[#B85C5C]">Skills</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex flex-col md:grid md:grid-cols-2 gap-10 place-items-center px-4 sm:px-6 pt-24 md:pt-32 relative">
+    <canvas id="starfield" class="absolute inset-0 w-full h-full z-0"></canvas>
+    <div class="z-10 text-center md:text-left mt-10 md:mt-0">
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">Hello, I'm <span class="text-[#B85C5C]">Bea Ysabel</span></h1>
+      <p class="text-gray-700 mb-6">A passionate developer building cool things.</p>
+      <a href="#projects"
+        class="inline-block px-5 py-3 bg-[#B85C5C] hover:bg-[#A04545] text-white font-semibold rounded-lg transition transform hover:scale-105 shadow-md">View
+        My Work</a>
+    </div>
+    <div class="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 mx-auto flex items-center justify-center mt-8 md:mt-0">
+      <!-- Wrist band (horizontal strap) -->
+      <div
+        class="absolute top-1/2 left-0 right-0 h-12 sm:h-16 -translate-y-1/2 bg-gradient-to-r from-[#C97777] via-[#B85C5C] to-[#C97777] rounded-lg shadow-[0_0_20px_rgba(184,92,92,0.6)]">
+      </div>
+
+      <!-- Omnitrix glowing ring -->
+      <div
+        class="absolute inset-0 rounded-full border-[8px] sm:border-[12px] border-[#B85C5C] animate-pulse shadow-[0_0_40px_10px_rgba(184,92,92,0.7)]">
+      </div>
+
+      <!-- Inner dark circle -->
+      <div class="absolute inset-6 rounded-full bg-[#F5D2D2] border-4 border-[#C97777]"></div>
+
+      <!-- Your image inside -->
+      <img src="assets/barbhielat.jpg" alt="My Photo"
+        class="relative w-44 h-44 sm:w-52 sm:h-52 md:w-56 md:h-56 object-cover rounded-full border-4 border-[#B85C5C] shadow-lg">
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 text-center">
+    <div class="w-full max-w-6xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4 text-[#B85C5C]">About Me</h2>
+      <p class="text-gray-700 text-sm sm:text-base max-w-3xl mx-auto">
+        I'm an IT student at <span class="text-[#B85C5C] font-semibold">PHINMA COC</span> who is truly passionate about
+        what I do.
+        I enjoy exploring technology, building creative projects, and continuously learning new skills to grow as a
+        developer.
+        Beyond coding, I love capturing memories through <span class="text-[#B85C5C]">photography and
+          videography</span>,
+        so I can look back and remember the moments that inspire me.
+      </p>
+
+      <!-- Grid of images -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-10">
+        <!-- 1. Kdrama -->
+        <div class="relative group w-full h-64 rounded-md border-4 border-[#B85C5C] shadow-lg bg-cover bg-center mx-auto"
+          style="background-image: url('assets/kdramas.png'); max-width: 280px;">
+          <div onclick="openModal('modalKdrama')"
+            class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-pointer transition">
+            <span class="text-white font-bold text-lg bg-[#B85C5C] px-4 py-2 rounded-lg shadow-md">See More</span>
+          </div>
+        </div>
+
+        <!-- Modal Kdrama -->
+        <div id="modalKdrama" class="fixed inset-0 hidden bg-black/80 flex items-center justify-center z-50">
+          <div
+            class="bg-[#F5D2D2] text-gray-800 p-4 sm:p-6 rounded-xl shadow-lg max-w-md w-[90%] sm:w-full mx-4 sm:mx-auto relative border-2 border-[#B85C5C]">
+            <button onclick="closeModal('modalKdrama')"
+              class="absolute top-2 right-2 text-gray-600 hover:text-gray-800 text-xl">&times;</button>
+            <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[#B85C5C]">Hobby #1 K-dramas</h2>
+            <p class="text-gray-700 text-sm sm:text-base">
+              I love watching K-dramas because they make me feel inspired and sometimes even "kilig."
+              Watching them lets me escape reality for a while and meet new people through the screen.
+              I also love how comforting it feels—it's like recharging my heart and mind.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2. American Movies -->
+        <div class="relative group w-full h-64 rounded-md border-4 border-[#B85C5C] shadow-lg bg-cover bg-center mx-auto"
+          style="background-image: url('assets/am.png'); max-width: 280px;">
+          <div onclick="openModal('modalAmerican')"
+            class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-pointer transition">
+            <span class="text-white font-bold text-lg bg-[#B85C5C] px-4 py-2 rounded-lg shadow-md">See More</span>
+          </div>
+        </div>
+
+        <!-- Modal American -->
+        <div id="modalAmerican" class="fixed inset-0 hidden bg-black/80 flex items-center justify-center z-50">
+          <div
+            class="bg-[#F5D2D2] text-gray-800 p-4 sm:p-6 rounded-xl shadow-lg max-w-md w-[90%] sm:w-full mx-4 sm:mx-auto relative border-2 border-[#B85C5C]">
+            <button onclick="closeModal('modalAmerican')"
+              class="absolute top-2 right-2 text-gray-600 hover:text-gray-800 text-xl">&times;</button>
+            <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[#B85C5C]">Hobby #2 American Movies</h2>
+            <p class="text-gray-700 text-sm sm:text-base">
+              I love watching American films like Harry Potter and Fast & Furious because and many more they bring me
+              into different
+              worlds whether it's the magic of Hogwarts or the thrill of racing through the streets.
+              They let me escape reality for a while and experience adventure, action, and unforgettable stories.
+              I also love how exciting and inspiring they feel it's like recharging my imagination and energy every time
+              I watch them.
+            </p>
+          </div>
+        </div>
+        
+        <!-- 3. Anime -->
+        <div class="relative group w-full h-64 rounded-md border-4 border-[#B85C5C] shadow-lg bg-cover bg-center mx-auto"
+          style="background-image: url('assets/animes.png'); max-width: 280px;">
+          <div onclick="openModal('modalAnime')"
+            class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-pointer transition">
+            <span class="text-white font-bold text-lg bg-[#B85C5C] px-4 py-2 rounded-lg shadow-md">See More</span>
+          </div>
+        </div>
+
+        <!-- Modal Anime -->
+        <div id="modalAnime" class="fixed inset-0 hidden bg-black/80 flex items-center justify-center z-50">
+          <div
+            class="bg-[#F5D2D2] text-gray-800 p-4 sm:p-6 rounded-xl shadow-lg max-w-md w-[90%] sm:w-full mx-4 sm:mx-auto relative border-2 border-[#B85C5C]">
+            <button onclick="closeModal('modalAnime')"
+              class="absolute top-2 right-2 text-gray-600 hover:text-gray-800 text-xl">&times;</button>
+            <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[#B85C5C]">Hobby #3 Love Anime</h2>
+            <p class="text-gray-700 text-sm sm:text-base">
+              Anime gives me new perspectives, unique stories, and characters that inspire me to dream big.
+              It's also a fun way to escape reality while learning meaningful lessons.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- 4. Music -->
+        <div class="relative group w-full h-64 rounded-md border-4 border-[#B85C5C] shadow-lg bg-cover bg-center mx-auto"
+          style="background-image: url('assets/musics.png'); max-width: 280px;">
+          <div onclick="openModal('modalMusic')"
+            class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-pointer transition">
+            <span class="text-white font-bold text-lg bg-[#B85C5C] px-4 py-2 rounded-lg shadow-md">See More</span>
+          </div>
+        </div>
+
+        <!-- Modal Music -->
+        <div id="modalMusic" class="fixed inset-0 hidden bg-black/80 flex items-center justify-center z-50">
+          <div
+            class="bg-[#F5D2D2] text-gray-800 p-4 sm:p-6 rounded-xl shadow-lg max-w-md w-[90%] sm:w-full mx-4 sm:mx-auto relative border-2 border-[#B85C5C]">
+            <button onclick="closeModal('modalMusic')"
+              class="absolute top-2 right-2 text-gray-600 hover:text-gray-800 text-xl">&times;</button>
+            <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[#B85C5C]">Hobby #4 Love Music</h2>
+            <p class="text-gray-700 text-sm sm:text-base">
+              Music comforts me, lifts my mood, and keeps me inspired while coding and creating.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Projects Section -->
+  <section id="projects" class="min-h-screen px-4 sm:px-6 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-[#B85C5C]">Projects</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+        <div class="bg-white/10 p-4 sm:p-6 rounded-xl shadow hover:shadow-[#B85C5C]/30 transition">
+          <h3 class="text-lg sm:text-xl font-semibold mb-2">Hotel <span class="text-[#B85C5C] font-semibold">Booking and Billing
+              Platform </span>for Demiren</h3>
+          <p class="text-gray-700 text-sm sm:text-base">A system to manage bookings and billing.</p>
+        </div>
+        <div class="bg-white/10 p-4 sm:p-6 rounded-xl shadow hover:shadow-[#B85C5C]/30 transition">
+          <h3 class="text-lg sm:text-xl font-semibold mb-2">Time-Locked a <span class="text-[#B85C5C] font-semibold">Journey Back
+              Home</span> Game</h3>
+          <p class="text-gray-700 text-sm sm:text-base">A game project inspired by interdimensional adventures.</p>
+        </div>
+        <div class="bg-white/10 p-4 sm:p-6 rounded-xl shadow hover:shadow-[#B85C5C]/30 transition">
+          <h3 class="text-lg sm:text-xl font-semibold mb-2">Bible App</h3>
+          <p class="text-gray-700 text-sm sm:text-base">A simple but powerful app, accessible anywhere in the galaxy.</p>
+        </div>
+        <div class="bg-white/10 p-4 sm:p-6 rounded-xl shadow hover:shadow-[#B85C5C]/30 transition">
+          <h3 class="text-lg sm:text-xl font-semibold mb-2">Attendance for IT Students in <span
+              class="text-[#B85C5C] font-semibold">PHINMA COC</span></h3>
+          <p class="text-gray-700 text-sm sm:text-base">This system is designed to help IT students keep track of their attendance during IT
+            DAYS in an easy and organized way.</p>
+        </div>
+        <div class="bg-white/10 p-4 sm:p-6 rounded-xl shadow hover:shadow-[#B85C5C]/30 transition">
+          <h3 class="text-lg sm:text-xl font-semibold mb-2">Caclulator for <span class="text-[#B85C5C] font-semibold">kids</span>
+          </h3>
+          <p class="text-gray-700 text-sm sm:text-base">It focuses on making learning math fun and easy, with a colorful and user-friendly
+            design.
+            The calculator helps children practice basic operations like addition, subtraction, multiplication, and
+            division while building confidence in solving math problems.</p>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8 sm:mt-10">
+        <div class="bg-white/10 p-4 sm:p-6 rounded-xl shadow hover:shadow-[#B85C5C]/30 transition">
+          <h3 class="text-lg sm:text-xl font-semibold mb-2">YouthCamp<span class="text-[#B85C5C] font-semibold">Design</span></h3>
+
+          <p class="text-gray-700 text-sm sm:text-base p-2 sm:p-4">
+            This design was inspired by our Youth Camp 2025 at church.
+            It reflects the energy, faith, and unity we experienced during the event.
+            The colors and style were chosen to symbolize growth, hope, and togetherness.
+          </p>
+
+          <!-- Canva Design Image -->
+          <img src="assets/youthcamp.png" alt="canva" class="w-full h-40 sm:h-48 object-contain rounded-lg border-[#B85C5C] bg-black mt-10">
+        </div>
+        <div class="bg-white/10 p-4 sm:p-6 rounded-xl shadow hover:shadow-[#B85C5C]/30 transition">
+          <h3 class="text-lg sm:text-xl font-semibold mb-2">Game<span class="text-[#B85C5C] font-semibold">Poster</span></h3>
+
+          <p class="text-gray-700 text-sm sm:text-base p-2 sm:p-4">
+            This design was created to showcase our game project <span class="font-semibold">"TimeLocked: A Journey Back
+              Home."</span>
+            It reflects the adventure, challenge, and excitement players will experience in the game.
+            The poster's colors and style were chosen to highlight action and creativity.
+          </p>
+
+          <!-- Canva Design Image -->
+          <img src="assets/game.png" alt="canva" class="w-full h-40 sm:h-48 object-contain rounded-lg border-[#B85C5C] bg-black">
+        </div>
+        <div class="bg-white/10 p-4 sm:p-6 rounded-xl shadow hover:shadow-[#B85C5C]/30 transition">
+          <h3 class="text-lg sm:text-xl font-semibold mb-2">Burger<span class="text-[#B85C5C] font-semibold">Design</span></h3>
+
+          <p class="text-gray-700 text-sm sm:text-base p-2 sm:p-4">
+            This design highlights a fun and appetizing concept inspired by everyday cravings.
+            It symbolizes creativity and freshness, using bold colors and playful style to make the burger design
+            eye-catching and memorable.
+          </p>
+
+          <!-- Canva Design Image -->
+          <img src="assets/burger.png" alt="canva" class="w-full h-40 sm:h-48 object-contain rounded-lg border-[#B85C5C] bg-black mt-10">
+        </div>
+        <div class="bg-white/10 p-4 sm:p-6 rounded-xl shadow hover:shadow-[#B85C5C]/30 transition">
+          <h3 class="text-lg sm:text-xl font-semibold mb-2">Coke<span class="text-[#B85C5C] font-semibold">Design</span></h3>
+
+          <p class="text-gray-700 text-sm sm:text-base p-2 sm:p-4">
+            This design was inspired by the refreshing and energetic vibe of Coke.
+            It represents enjoyment, fun, and youthfulness, while the design style emphasizes boldness and excitement
+            that connects with everyone.
+          </p>
+          <!-- Canva Design Image -->
+          <img src="assets/coke.png" alt="canva" class="w-full h-40 sm:h-48 object-contain rounded-lg border-[#B85C5C] bg-black mt-10">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16">
+    <div class="w-full max-w-6xl mx-auto p-4 sm:p-6">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 text-[#B85C5C]">Skills</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        <div>
+          <span class="font-semibold">HTML & CSS</span>
+          <div class="w-full bg-white/10 rounded-lg h-6 overflow-hidden">
+            <div
+              class="progress-bar h-6 bg-gradient-to-r from-[#B85C5C] to-[#D98B8B] text-xs text-right pr-2 leading-6 rounded-lg w-0"
+              data-progress="90">0%</div>
+          </div>
+        </div>
+
+        <div>
+          <span class="font-semibold">React JS</span>
+          <div class="w-full bg-white/10 rounded-lg h-6 overflow-hidden">
+            <div
+              class="progress-bar h-6 bg-gradient-to-r from-[#B85C5C] to-[#D98B8B] text-xs text-right pr-2 leading-6 rounded-lg w-0"
+              data-progress="81">0%</div>
+          </div>
+        </div>
+
+        <div>
+          <span class="font-semibold">Next JS</span>
+          <div class="w-full bg-white/10 rounded-lg h-6 overflow-hidden">
+            <div
+              class="progress-bar h-6 bg-gradient-to-r from-[#B85C5C] to-[#D98B8B] text-xs text-right pr-2 leading-6 rounded-lg w-0"
+              data-progress="81">0%</div>
+          </div>
+        </div>
+
+        <div>
+          <span class="font-semibold">Flutter</span>
+          <div class="w-full bg-white/10 rounded-lg h-6 overflow-hidden">
+            <div
+              class="progress-bar h-6 bg-gradient-to-r from-[#B85C5C] to-[#D98B8B] text-xs text-right pr-2 leading-6 rounded-lg w-0"
+              data-progress="70">0%</div>
+          </div>
+        </div>
+        
+        <div>
+          <span class="font-semibold">PHP</span>
+          <div class="w-full bg-white/10 rounded-lg h-6 overflow-hidden">
+            <div
+              class="progress-bar h-6 bg-gradient-to-r from-[#B85C5C] to-[#D98B8B] text-xs text-right pr-2 leading-6 rounded-lg w-0"
+              data-progress="40">0%</div>
+          </div>
+        </div>
+        
+        <div>
+          <span class="font-semibold">Figma</span>
+          <div class="w-full bg-white/10 rounded-lg h-6 overflow-hidden">
+            <div
+              class="progress-bar h-6 bg-gradient-to-r from-[#B85C5C] to-[#D98B8B] text-xs text-right pr-2 leading-6 rounded-lg w-0"
+              data-progress="93">0%</div>
+          </div>
+        </div>
+        
+        <div>
+          <span class="font-semibold">Canva</span>
+          <div class="w-full bg-white/10 rounded-lg h-6 overflow-hidden">
+            <div
+              class="progress-bar h-6 bg-gradient-to-r from-[#B85C5C] to-[#D98B8B] text-xs text-right pr-2 leading-6 rounded-lg w-0"
+              data-progress="93">0%</div>
+          </div>
+        </div>
+        
+        <div>
+          <span class="font-semibold">CapCut</span>
+          <div class="w-full bg-white/10 rounded-lg h-6 overflow-hidden">
+            <div
+              class="progress-bar h-6 bg-gradient-to-r from-[#B85C5C] to-[#D98B8B] text-xs text-right pr-2 leading-6 rounded-lg w-0"
+              data-progress="94">0%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <footer class="text-center py-12 bg-[#B85C5C]/90 border-t border-[#F5D2D2]/20">
+    <p class="text-gray-100 mb-4">© 2025 <span class="text-[#F5D2D2] font-semibold">MyOmnitrix</span>. All rights
+      reserved.</p>
+
+    <!-- Socials -->
+    <div class="flex justify-center gap-6 text-gray-100 text-2xl">
+      <!-- Gmail -->
+      <a href="mailto:beyasabellach@gmail.com" class="hover:text-[#F5D2D2] transition">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/sierraabellee" target="_blank" class="hover:text-[#F5D2D2] transition">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/allfides/" target="_blank" class="hover:text-[#F5D2D2] transition">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <!-- Messenger -->
+      <a href="https://m.me/yourusername" target="_blank" class="hover:text-[#F5D2D2] transition">
+        <i class="fa-brands fa-facebook-messenger"></i>
+      </a>
+      <a href="#home"
+        class="fixed bottom-6 right-6 bg-[#B85C5C] hover:bg-[#D98B8B] text-white p-3 rounded-full shadow-lg transition">
+        <i class="fa-solid fa-arrow-up"></i>
+      </a>
+    </div>
+
+  </footer>
+
+
+
+  <script src="stars.js"></script>
+  <script src="script.js"></script>
+  <script src="skills.js"></script>
+  <script src="scroll.js"></script>
+  <script src="modal.js"></script>
+  <script src="ben10.js"></script>
+</body>
+
+</html>
