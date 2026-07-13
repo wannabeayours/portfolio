@@ -1,4 +1,4 @@
-
+//ben10.js
 // Animate skills
 window.addEventListener("scroll", () => {
   document.querySelectorAll(".progress-bar").forEach(bar => {

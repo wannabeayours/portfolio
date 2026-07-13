@@ -1,0 +1,175 @@
+/* style.css — design tokens & signature elements */
+
+:root {
+  --charcoal: #1C1A17;
+  --paper: #F6F2EA;
+  --ink: #26221D;
+  --amber: #C9932B;
+  --rust: #A34A2A;
+}
+
+html { scroll-behavior: smooth; }
+
+body { font-family: var(--font-body); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---------- Film frame (hero portrait) ---------- */
+.film-frame {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  background: var(--charcoal);
+  padding: 10px 22px;
+  width: 272px;
+}
+
+.film-frame__img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  filter: sepia(8%) contrast(1.02);
+}
+
+.film-frame__sprockets {
+  width: 14px;
+  flex-shrink: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 10px,
+    #F6F2EA 10px,
+    #F6F2EA 16px
+  );
+  -webkit-mask-image: radial-gradient(circle 3px, transparent 3px, black 3.5px);
+  mask-image: radial-gradient(circle 3px, transparent 3px, black 3.5px);
+}
+
+/* ---------- Reel cards (hobby grid) ---------- */
+.reel-card {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(38, 34, 29, 0.12);
+}
+
+.reel-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 26, 23, 0.55);
+  opacity: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.reel-card:hover .reel-card__overlay,
+.reel-card:focus-within .reel-card__overlay { opacity: 1; }
+
+.reel-card__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--paper);
+  border-bottom: 1px solid var(--amber);
+  padding-bottom: 2px;
+}
+
+/* ---------- Modal ---------- */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 26, 23, 0.85);
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+  padding: 1rem;
+}
+
+.modal.is-open { display: flex; }
+
+.modal__panel {
+  position: relative;
+  background: var(--paper);
+  color: var(--ink);
+  max-width: 28rem;
+  width: 100%;
+  padding: 2rem 1.75rem;
+  border-top: 3px solid var(--rust);
+}
+
+.modal__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: rgba(38, 34, 29, 0.5);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal__close:hover { color: var(--rust); }
+
+/* ---------- Project cards ---------- */
+.project-card {
+  background: var(--charcoal);
+  padding: 1.75rem;
+  border: 1px solid rgba(246, 242, 234, 0.06);
+}
+
+.project-card__tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.9rem;
+}
+
+/* ---------- Design work cards ---------- */
+.design-card__img {
+  width: 100%;
+  height: 11rem;
+  object-fit: contain;
+  background: #100F0D;
+  border: 1px solid rgba(246, 242, 234, 0.1);
+}
+
+/* ---------- Skills ---------- */
+.skill-row__label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.skill-row__value {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--rust);
+}
+
+.skill-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(38, 34, 29, 0.1);
+}
+
+.skill-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, var(--rust), var(--amber));
+  transition: width 1.1s ease;
+}

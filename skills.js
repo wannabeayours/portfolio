@@ -1,3 +1,5 @@
+// skills.js
+
 // === Animate skill bars on scroll ===
 document.addEventListener("DOMContentLoaded", () => {
   const skillsSection = document.querySelector("#skills");

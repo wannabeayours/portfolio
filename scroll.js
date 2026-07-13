@@ -1,3 +1,5 @@
+// scroll.js
+
 // smoothscroll.js
 
 function smoothScroll(target, duration = 1000) {

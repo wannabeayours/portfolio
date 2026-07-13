@@ -1,3 +1,4 @@
+// modal.js
 function openModal(id) {
   document.getElementById(id).classList.remove('hidden');
 }
